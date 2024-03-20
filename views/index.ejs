@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Posts</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <a
+      href="/posts"
+      class="text-3xl font-bold text-blue-600 hover:text-blue-800 mx-80"
+      >Quora Posts</a
+    >
+    <div class="mt-8 mx-80">
+      <a
+        href="/new"
+        class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        >Create a new post</a
+      >
+    </div>
+    <div class="max-w-4xl mx-auto mt-8">
+      <% if (posts.length >= 1) { %> <% posts.forEach(post => { %>
+      <a href="/posts/<%= post.id %>">
+        <div
+          class="bg-white shadow-md rounded-lg p-6 mt-4 hover:shadow-xl transition duration-300"
+        >
+          <div class="flex justify-between items-center">
+            <h3 class="text-xl font-semibold">@<%= post.username %></h3>
+            <div class="flex space-x-2">
+              <form method="GET" action="/edit/<%= post.id %>">
+                <button
+                  type="submit"
+                  class="p-1 rounded-full bg-gray-200 hover:bg-gray-300"
+                >
+                  <img src="edit.png" class="w-5 h-5" alt="Edit" />
+                </button>
+              </form>
+              <form method="POST" action="/posts/<%= post.id %>?_method=DELETE">
+                <button
+                  type="submit"
+                  class="p-1 rounded-full bg-gray-200 hover:bg-gray-300"
+                >
+                  <img src="dlt.png" class="w-5 h-5" alt="Delete" />
+                </button>
+              </form>
+            </div>
+          </div>
+          <p class="mt-2"><%= post.content %></p>
+        </div>
+      </a>
+      <% }) %> <% } else { %>
+      <p class="mt-4">
+        No posts yet. Start by
+        <a href="/new" class="text-blue-600 hover:text-blue-800"
+          >adding a new post</a
+        >.
+      </p>
+      <% } %>
+    </div>
+  </body>
+</html>

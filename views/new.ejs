@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add a post</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <a
+      href="/posts"
+      class="text-3xl font-bold text-blue-600 hover:text-blue-800"
+      >Quora Posts</a
+    >
+
+    <form method="post" action="/posts" class="max-w-md mx-auto mt-4">
+      <h3 class="mt-8 text-xl text-blue-600">Add a new Post</h3>
+      <br />
+      <div class="mb-4">
+        <label for="username" class="block text-sm font-medium text-gray-700"
+          >Enter username</label
+        >
+        <input
+          type="text"
+          name="username"
+          id="username"
+          class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 block w-full"
+        />
+      </div>
+      <div class="mb-4">
+        <label for="content" class="block text-sm font-medium text-gray-700"
+          >Enter content</label
+        >
+        <input
+          type="text"
+          name="content"
+          id="content"
+          class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 block w-full"
+        />
+      </div>
+      <button
+        type="submit"
+        class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+      >
+        Submit
+      </button>
+    </form>
+  </body>
+</html>

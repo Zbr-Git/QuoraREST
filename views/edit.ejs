@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Posts</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <a
+      href="/posts"
+      class="text-3xl font-bold text-blue-600 hover:text-blue-800"
+      >Quora Posts</a
+    >
+    <div class="max-w-md mx-auto mt-8">
+      <div class="bg-white shadow-md rounded-lg p-6">
+        <h3 class="text-xl font-semibold">@<%= post.username %></h3>
+        <form
+          method="POST"
+          action="/posts/<%=post.id%>?_method=PATCH"
+          class="mt-4"
+        >
+          <input
+            type="text"
+            name="content"
+            value="<%= post.content %>"
+            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+          />
+          <button
+            type="submit"
+            class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="max-w-md mx-auto mt-8">
+      <a
+        href="/new"
+        class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        >Create a new post</a
+      >
+    </div>
+  </body>
+</html>
